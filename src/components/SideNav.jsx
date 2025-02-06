@@ -3,18 +3,21 @@ import { Moon } from "lucide-react";
 import { Calendar } from "lucide-react";
 import { MapPin } from "lucide-react";
 
-function SideNav({ location }) {
+function SideNav({ location, data }) {
   return (
     <div className=" scrollbar-hidden  hide-scrollbar bg-zinc-900 px-3">
       <div className="bg-zinc-800  rounded-xl justify-self-center w-full  p-4">
         <p className="text-sm/10">Now</p>
         <div className="grid grid-cols-2 ">
           <p className="text-5xl">
-            19&deg;<sup className="text-xl">C</sup>
+            {data ? data.main.temp : ""}&deg;
+            <sup className="text-xl">C</sup>
           </p>
           <Moon className="fill-white size-14 pl-3" />
         </div>
-        <p className="text-xs py-3 text-white-400">Clear Sky</p>
+        <p className="text-xs py-3 text-white-400">
+          {data ? data.weather[0]?.description : ""}
+        </p>
         <hr />
         <div className=" flex text-xs py-2">
           <Calendar className="size-4 " />
@@ -22,7 +25,10 @@ function SideNav({ location }) {
         </div>
         <div className="flex text-xs">
           <MapPin className="size-4" />
-          <p className="pl-1 opacity-25 ">Chandpur BD</p>
+          <p className="pl-1 opacity-25 ">
+            {" "}
+            {data ? data.name : ""}, {data ? data.sys?.country : ""}
+          </p>
         </div>
       </div>
       <p className="p-2 pl-0">5 Days Forecast</p>
