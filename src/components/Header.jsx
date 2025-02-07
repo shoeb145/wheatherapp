@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Search, Umbrella, ArrowLeft } from "lucide-react";
 import { Locate } from "lucide-react";
 
-function Header({ change, location, handleClick }) {
+function Header({ change, location, handleClick, coordinate }) {
   const [searchvalue, setSearchValue] = useState("");
   const [showMyModel, setShowMyModel] = useState(false);
+  const [selectitem, setSelectitem] = useState(null);
+
   function handlClick() {
     setShowMyModel(!showMyModel);
   }
@@ -24,6 +26,15 @@ function Header({ change, location, handleClick }) {
 
     setSearchValue(value);
   }
+
+  function getData(key) {
+    if (key === "") {
+      return;
+    }
+    setSelectitem(coordinate[key]);
+  }
+  console.log(selectitem, "df jklgksdjgljsglj");
+
   return (
     <div className="flex  items-center justify-between pt-4 px-7 pb-3  bg-zinc-900 sticky top-0 z-40 ">
       {showMyModel && (
@@ -37,7 +48,7 @@ function Header({ change, location, handleClick }) {
             />
             <div className="flex justify-center ">
               <input
-                className=" w-30 h-10  px-3  text-sm outline-hidden border-hidden"
+                className=" w-80 h-10  px-3  text-sm outline-hidden border-hidden"
                 type="text"
                 placeholder="Search city..."
                 value={searchvalue}
@@ -51,6 +62,22 @@ function Header({ change, location, handleClick }) {
             </div>
           </div>
           <hr />
+          <div>
+            {coordinate &&
+              coordinate.map((co, id) => {
+                return (
+                  <div
+                    key={id}
+                    className="flex  justify-between cursor-pointer p-2 py-1"
+                    onClick={() => {
+                      getData(id);
+                    }}
+                  >
+                    <p>{co.name} </p> <p> {co.country}</p>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       )}
       <div className="flex items-center">

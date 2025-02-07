@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 
 function App() {
   const [data, setData] = useState(null);
+  const [coordinate, setCoordinate] = useState(null);
 
   const [city, setCity] = useState("");
   const [loading, setLoading] = useState(false);
@@ -15,6 +16,7 @@ function App() {
     latitude: 51.509865,
     longitude: -0.118092,
   });
+
   const [showMyModel, setShowMyModel] = useState(false);
 
   function handlClick() {
@@ -24,7 +26,26 @@ function App() {
   function handleCity(data) {
     setCity(data);
   }
-  useEffect(() => {}, [city]);
+  console.log(city);
+  useEffect(() => {
+    if (city === "") {
+      return;
+    }
+    async function fetchCord() {
+      try {
+        const baseUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=`;
+        const suffix = apiKey;
+        let url = baseUrl + suffix;
+        let res = await fetch(url);
+        let cord = await res.json();
+        setCoordinate(cord);
+        console.log(coordinate);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchCord();
+  }, [city]);
 
   function handleLocation(value) {
     setLocation((loc) => ({ ...loc, ...value }));
@@ -53,6 +74,7 @@ function App() {
     }
     fetchData();
   }, [location]);
+  console.log(coordinate);
 
   return (
     <>
@@ -60,6 +82,7 @@ function App() {
         change={handleCity}
         handleClick={handlClick}
         location={handleLocation}
+        coordinate={coordinate}
         className="font-roboto "
       />
 
