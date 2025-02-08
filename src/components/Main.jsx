@@ -10,7 +10,7 @@ import {
   Thermometer,
 } from "lucide-react";
 
-function Main() {
+function Main({ data }) {
   return (
     <div className="font-roboto    hide-scrollbar bg-zinc-900  justify-self-center  w-full  p-4">
       <div className="bg-zinc-800 rounded-xl justify-self-center w-full  p-4">
@@ -28,7 +28,8 @@ function Main() {
 
             <div className="grid-rows-2 place-items-center">
               <p className="text-gray-300">
-                1.48<span className="text-gray-500 text-sm">PM25</span>
+                {data?.pollution?.list[0]?.components?.pm2_5}
+                <span className="text-gray-500 text-sm">PM25</span>
               </p>{" "}
               <p className="text-gray-300">
                 1.48<span className="text-gray-500 text-sm">N02</span>

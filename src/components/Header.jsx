@@ -5,7 +5,6 @@ import { Locate } from "lucide-react";
 function Header({ change, location, handleClick, coordinate }) {
   const [searchvalue, setSearchValue] = useState("");
   const [showMyModel, setShowMyModel] = useState(false);
-  const [selectitem, setSelectitem] = useState(null);
 
   function handlClick() {
     setShowMyModel(!showMyModel);
@@ -31,9 +30,10 @@ function Header({ change, location, handleClick, coordinate }) {
     if (key === "") {
       return;
     }
-    setSelectitem(coordinate[key]);
+    // setSelectitem({coordinate[key].lon);
+    location({ latitude: coordinate[key].lat, longitude: coordinate[key].lon });
+    setShowMyModel(!showMyModel);
   }
-  console.log(selectitem, "df jklgksdjgljsglj");
 
   return (
     <div className="flex  items-center justify-between pt-4 px-7 pb-3  bg-zinc-900 sticky top-0 z-40 ">
@@ -62,13 +62,13 @@ function Header({ change, location, handleClick, coordinate }) {
             </div>
           </div>
           <hr />
-          <div>
+          <div className="px-4">
             {coordinate &&
               coordinate.map((co, id) => {
                 return (
                   <div
                     key={id}
-                    className="flex  justify-between cursor-pointer p-2 py-1"
+                    className="flex  justify-between cursor-pointer py-0.5"
                     onClick={() => {
                       getData(id);
                     }}
@@ -106,7 +106,7 @@ function Header({ change, location, handleClick, coordinate }) {
           />
         </div>
         <div
-          className="flex items-center rounded-full w-9 h-9 px-2 place-content-center py-2 bg-zinc-800"
+          className="flex items-center rounded-full w-9 h-9 px-2 place-content-center py-2 bg-zinc-800 active:bg-violet-700 focus:bg-violet-700"
           onClick={() => {
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition((position) => {

@@ -7,7 +7,12 @@ import { useState, useEffect } from "react";
 import Footer from "./components/footer";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({
+    currentWeather: null,
+    forecast: null,
+    pollution: null,
+  });
+
   const [coordinate, setCoordinate] = useState(null);
 
   const [city, setCity] = useState("");
@@ -26,7 +31,7 @@ function App() {
   function handleCity(data) {
     setCity(data);
   }
-  console.log(city);
+
   useEffect(() => {
     if (city === "") {
       return;
@@ -50,31 +55,41 @@ function App() {
   function handleLocation(value) {
     setLocation((loc) => ({ ...loc, ...value }));
   }
-  console.log(location);
+
   useEffect(() => {
     if (loading) {
       return;
     }
+    const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${apiKey}`;
+    const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${apiKey}`;
+    const pollutionURL = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`;
 
     async function fetchData() {
       setLoading(true);
 
       try {
-        const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=`;
-        const suffix = apiKey;
-        const url = baseUrl + suffix;
-        let res = await fetch(url);
-        let currentWeather = await res.json();
-        setData((prev) => ({ ...prev, ...currentWeather }));
+        const [currentWeatherRes, forecastRes, pollutionRes] =
+          await Promise.all([
+            fetch(currentWeatherURL),
+            fetch(forecastURL),
+            fetch(pollutionURL),
+          ]);
+
+        const [currentWeather, forecast, pollution] = await Promise.all([
+          currentWeatherRes.json(),
+          forecastRes.json(),
+          pollutionRes.json(),
+        ]);
+        setData({ currentWeather, forecast, pollution });
+
         setLoading(false);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
     }
     fetchData();
   }, [location]);
-  console.log(coordinate);
+  console.log(data.pollution);
 
   return (
     <>
@@ -87,7 +102,7 @@ function App() {
       />
 
       <SideNav className="font-roboto " location={location} data={data} />
-      <Main />
+      <Main data={data} />
       <Footer />
     </>
   );
