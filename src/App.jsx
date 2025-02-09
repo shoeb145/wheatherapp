@@ -100,10 +100,11 @@ function App() {
         coordinate={coordinate}
         className="font-roboto "
       />
-
-      <SideNav className="font-roboto " location={location} data={data} />
-      <Main data={data} />
-      <Footer />
+      <div className="lg:grid lg:grid-cols-4">
+        {" "}
+        <SideNav className="font-roboto " location={location} data={data} />
+        <Main data={data} />
+      </div>
     </>
   );
 }

@@ -22,6 +22,7 @@ function Header({ change, location, handleClick, coordinate }) {
   }, [showMyModel]);
   function handlechange(e) {
     let value = e.target.value;
+    change(value);
 
     setSearchValue(value);
   }
@@ -36,7 +37,7 @@ function Header({ change, location, handleClick, coordinate }) {
   }
 
   return (
-    <div className="flex  items-center justify-between pt-4 px-7 pb-3  bg-zinc-900 sticky top-0 z-40 ">
+    <div className="flex  items-center justify-between pt-4 px-7 pb-3  bg-zinc-900 sticky top-0 z-40 h-20 ">
       {showMyModel && (
         <div className="fixed inset-0 h-screen bg-black bg-opacity-30 backdrop-blur-sm  ">
           <div className="flex  items-center  pt-4 px-3 pb-3   ">
@@ -55,7 +56,6 @@ function Header({ change, location, handleClick, coordinate }) {
                 onChange={handlechange}
                 onKeyUp={(e) => {
                   if (e.key == "Enter") {
-                    change(searchvalue);
                   }
                 }}
               />
@@ -63,7 +63,9 @@ function Header({ change, location, handleClick, coordinate }) {
           </div>
           <hr />
           <div className="px-4">
+            {}
             {coordinate &&
+              searchvalue &&
               coordinate.map((co, id) => {
                 return (
                   <div
@@ -98,11 +100,6 @@ function Header({ change, location, handleClick, coordinate }) {
             placeholder="Search city..."
             value={searchvalue}
             onChange={handlechange}
-            onKeyUp={(e) => {
-              if (e.key == "Enter") {
-                change(searchvalue);
-              }
-            }}
           />
         </div>
         <div

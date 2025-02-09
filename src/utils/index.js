@@ -54,3 +54,63 @@ export function roundOff(value) {
 
   return Math.round(tempFraction);
 }
+
+export const aqiText = {
+  1: {
+    level: "Good",
+    message:
+      "Air quality is considered satisfactory, and air pollution poses little or no risk",
+  },
+  2: {
+    level: "Fair",
+    message:
+      "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.",
+  },
+  3: {
+    level: "Moderate",
+    message:
+      "Members of sensitive groups may experience health effects the general public is not likely to be affected",
+  },
+  4: {
+    level: "Poor",
+    message:
+      "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects",
+  },
+  5: {
+    level: "Very Poor",
+    message:
+      "Health warnings of emergency conditions. the entire population is more likely to be affected. ",
+  },
+};
+export function msToTime(date, timezone) {
+  const date1 = new Date((date + timezone) * 1000);
+  const hours = date1.getUTCHours();
+  const minutes = date1.getUTCMinutes();
+  const formattedMinutes = minutes.toString().padStart(2, "0");
+
+  const period = hours >= 12 ? "PM" : "AM";
+  return `${hours % 12 || 12}:${formattedMinutes} ${period}`;
+}
+
+export function mToKm(meter) {
+  return meter / 1000;
+}
+
+export function dt_TextToTime(text) {
+  if (!text) {
+    return;
+  }
+  let hours = text.split(" ")[1].split(":")[0];
+  const period = hours >= 12 ? "PM" : "AM";
+  if (hours == 0) {
+    hours = 12;
+  } else if (hours > 12) {
+    hours = hours - 12;
+  }
+
+  return `${hours} ${period}`;
+}
+
+export function msToKmh(ms) {
+  return Math.round(ms * 3.6);
+}

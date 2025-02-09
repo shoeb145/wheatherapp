@@ -1,6 +1,7 @@
-@import "tailwindcss";
-@plugin "daisyui";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+
+@plugin "daisyui";
 
 :root {
   --font-roboto: "Poppins", sans-serif;
@@ -18,4 +19,25 @@
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+}
+.aqi-1 {
+  background-color: #89e589;
+  color: #1f331f;
+}
+.aqi-2 {
+  background-color: #e5dd89;
+  color: #33311f;
+}
+.aqi-3 {
+  background-color: #e5c089;
+  color: #332b1f;
+}
+.aqi-4 {
+  background-color: #e58989;
+
+  color: #331f1f;
+}
+.aqi-5 {
+  background-color: #e589b7;
+  color: #331f29;
 }

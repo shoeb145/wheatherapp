@@ -13,8 +13,8 @@ import {
 function SideNav({ location, data }) {
   console.log(getCurrentDate());
   return (
-    <div className=" scrollbar-hidden  hide-scrollbar bg-zinc-900 px-3">
-      <div className="bg-zinc-800  rounded-xl justify-self-center w-full  p-4">
+    <div className="  hide-scrollbar bg-zinc-900 px-3 h-screen overflow-y-scroll   ">
+      <div className="bg-zinc-800   rounded-xl justify-self-center w-full    p-4">
         <p className="text-sm/10">Now</p>
         <div className="grid grid-cols-2 place-content-center">
           <p className="text-5xl self-center">
