@@ -14,7 +14,7 @@ import {
 
 function Main({ data }) {
   return (
-    <div className="font-roboto lg:h-lvh .hide-scrollbar lg:overflow-y-scroll   lg:hide-scrollbar bg-zinc-900 col-span-3 justify-self-center  w-full  p-4">
+    <div className="font-roboto lg:h-[calc(100vh-80px)] .hide-scrollbar lg:overflow-y-scroll   lg:hide-scrollbar bg-zinc-900 col-span-3 justify-self-center  w-full  p-4">
       <div className="bg-zinc-800 rounded-xl justify-self-center w-full p-4">
         Todays Highlights
         <div className=" p-3 bg-zinc-900 rounded-xl justify-self-center w-full m-2">
