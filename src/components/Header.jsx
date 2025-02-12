@@ -86,14 +86,14 @@ function Header({ change, location, handleClick, coordinate }) {
         <Umbrella className="fill-amber-300 size-9 pr-1" />
         <span>Weatherain</span>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-4">
         <div
-          className="flex items-center place-content-center  rounded-full w-9 h-9 px-2 py-2 bg-zinc-800 "
+          className="flex items-center place-content-center  rounded-full md:h-10 w-9 md:w-10 h-9 px-2 py-2 bg-zinc-800 "
           onClick={() => {
             handlClick();
           }}
         >
-          <Search className="place-content-center size-4 flex " />
+          <Search className="place-content-center size-4 md:size-5 flex " />
           <input
             className=" w-80 h-10 outline-none px-2 border-none text-sm  hidden"
             type="text"
@@ -102,8 +102,9 @@ function Header({ change, location, handleClick, coordinate }) {
             onChange={handlechange}
           />
         </div>
-        <div
-          className="flex items-center rounded-full w-9 h-9 px-2 place-content-center py-2 bg-zinc-800 active:bg-violet-700 focus:bg-violet-700"
+        <div className={{actClick ? {md:bg-fuchsia-200}: {bg-zinc-800 }}
+          className="flex items-center rounded-full md:h-10 w-9 h-9 px-2 md:w-44 md:cursor-pointer
+          place-content-center py-2 bg-zinc-800 active:bg-violet-700 focus:bg-violet-700"
           onClick={() => {
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition((position) => {
@@ -113,8 +114,9 @@ function Header({ change, location, handleClick, coordinate }) {
             }
           }}
         >
-          <Locate className="size-4" />
-          {/* <span className="px-3 text-sm">Current Location</span> */}
+          <Locate className="size-4 md:size-7 md:pr-2 " />
+
+          <span className="hidden md:block  text-sm">Current Location</span>
         </div>
       </div>
     </div>

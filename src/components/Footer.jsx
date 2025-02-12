@@ -15,7 +15,7 @@ function Footer({ data }) {
               return (
                 <div
                   key={id}
-                  className="flex flex-col rounded-2xl m-2 min-w-20  min-h-28 bg-zinc-800  justify-center items-center"
+                  className="flex flex-col rounded-2xl m-2 min-w-25 min-h-40 bg-zinc-800  justify-center items-center"
                 >
                   <p>{dt_TextToTime(cast?.dt_txt)}</p>
                   <img
@@ -45,15 +45,15 @@ function Footer({ data }) {
               return (
                 <div
                   key={id}
-                  className="flex flex-col rounded-2xl m-2 min-w-20  min-h-28 bg-zinc-800  justify-center items-center"
+                  className="flex flex-col rounded-2xl m-2 min-w-25 min-h-40 bg-zinc-800  justify-center items-center"
                 >
-                  <p>{dt_TextToTime(cast?.dt_txt)}</p>
+                  <p className="p-2">{dt_TextToTime(cast?.dt_txt)}</p>
                   <MousePointer2
                     style={{ transform: `rotate(${cast?.wind?.deg}deg)` }}
-                    className={`rotate-${cast?.wind?.deg} text-amber-200 fill-amber-200 `}
+                    className={`rotate-${cast?.wind?.deg} text-amber-200 fill-amber-200 m-4 `}
                   />
 
-                  <p>
+                  <p className="p-2">
                     {msToKmh(cast.wind?.speed)}
                     km/h
                   </p>

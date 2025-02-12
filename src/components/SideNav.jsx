@@ -13,7 +13,7 @@ import {
 function SideNav({ location, data }) {
   console.log(getCurrentDate());
   return (
-    <div className="  hide-scrollbar bg-zinc-900 px-3 lg:h-[calc(100vh-80px)] overflow-y-scroll   ">
+    <div className="  hide-scrollbar bg-zinc-900 md:h-[calc(100vh-105px)] md:overflow-y-scroll lg:h-[calc(100vh-80px)] overflow-y-scroll  p-4 md:p-2">
       <div className="bg-zinc-800   rounded-xl justify-self-center w-full    p-4">
         <p className="text-sm/10">Now</p>
         <div className="grid grid-cols-2 place-content-center">
@@ -50,21 +50,30 @@ function SideNav({ location, data }) {
         </div>
       </div>
       <p className="p-2 pl-0">5 Days Forecast</p>
-      <div className="bg-zinc-800  rounded-xl justify-self-center w-full  flex flex-col p-4">
+      <div className="bg-zinc-800  rounded-xl justify-self-center w-full  flex flex-col p-4 md:p-2 md:pr-3">
         {data.forecast &&
           data.forecast.list
-            .filter((_, index) => index % 7 == 0)
+            .filter((_, index) => index % 8 == 0)
             .map((cast, id) => {
               return (
-                <div className="flex justify-between" key={id}>
+                <div className="grid grid-cols-3 " key={id}>
                   {" "}
                   <img
-                    className=" size-20 "
+                    className=" size-20 md:size-16"
                     src={iconType[cast ? cast.weather[0]?.icon : "no image"]}
                     alt=""
                   />
-                  <p>{getCurrentForecastDate(cast.dt_txt)}</p>
-                  <p>{getCurrentForecastWeekday(cast.dt_txt)}</p>
+                  <div className="opacity-25 place-items-center self-center">
+                    {" "}
+                    <p className="text-base md:text-sm">
+                      {getCurrentForecastDate(cast.dt_txt)}
+                    </p>
+                  </div>
+                  <div className="  opacity-25 place-items-end self-center">
+                    <p className="md:text-sm">
+                      {getCurrentForecastWeekday(cast.dt_txt)}
+                    </p>
+                  </div>
                 </div>
               );
             })}

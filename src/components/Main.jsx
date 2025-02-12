@@ -14,11 +14,11 @@ import {
 
 function Main({ data }) {
   return (
-    <div className="font-roboto lg:h-[calc(100vh-80px)] .hide-scrollbar lg:overflow-y-scroll   lg:hide-scrollbar bg-zinc-900 col-span-3 justify-self-center  w-full  p-4">
+    <div className=" hide-scrollbar font-roboto lg:h-[calc(100vh-80px)] md:h-[calc(100vh-105px)] lg:overflow-y-scroll md:overflow-y-scroll  md:hide-scrollbar  lg:hide-scrollbar bg-zinc-900 md:col-span-2 col-span-3 justify-self-center  w-full md:p-2  p-4">
       <div className="bg-zinc-800 rounded-xl justify-self-center w-full p-4">
         Todays Highlights
         <div className=" p-3 bg-zinc-900 rounded-xl justify-self-center w-full m-2">
-          <div className="flex justify-between ">
+          <div className="flex justify-between p-1 ">
             <p className="opacity-25 text-sm">Air Quality Index</p>
             <p
               className={`text-xs self-center rounded-xl aqi-${data?.pollution?.list[0]?.main?.aqi}  p-1 `}
@@ -27,7 +27,7 @@ function Main({ data }) {
               {aqiText[data?.pollution?.list[0]?.main?.aqi]?.level}
             </p>
           </div>
-          <div className="grid grid-cols-3 ">
+          <div className="grid grid-cols-3 p-1 ">
             <Wind className="self-center" />
 
             <div className="grid-rows-2 place-items-center">
@@ -55,7 +55,7 @@ function Main({ data }) {
         <div className=" p-3 bg-zinc-900 rounded-xl justify-self-center w-full">
           {" "}
           <div className="">
-            <p className="opacity-25 text-sm">Sunrise & Sunset</p>
+            <p className="opacity-25 text-sm p-1">Sunrise & Sunset</p>
             <div className="grid grid-cols-2">
               <div className="flex">
                 {" "}
@@ -86,28 +86,28 @@ function Main({ data }) {
           </div>
         </div>
         <div className=" p-3 m-2 bg-zinc-900 rounded-xl justify-self-center w-full">
-          <p className="opacity-25 text-sm">Humidity</p>
+          <p className="opacity-25 text-sm p-1">Humidity</p>
           <div className="flex justify-between p-3">
             <Droplets />
             <p>{data?.currentWeather?.main?.humidity}%</p>
           </div>
         </div>
         <div className=" p-3  bg-zinc-900 rounded-xl justify-self-center w-full">
-          <p className="opacity-25 text-sm">Pressure</p>
+          <p className="opacity-25 text-sm p-1">Pressure</p>
           <div className="flex justify-between p-3">
             <WindArrowDown />
             <p>{data?.currentWeather?.main?.pressure}hPa</p>
           </div>
         </div>
         <div className=" p-3 m-2 bg-zinc-900 rounded-xl justify-self-center w-full">
-          <p className="opacity-25 text-sm">Visibility</p>
+          <p className="opacity-25 text-sm p-1">Visibility</p>
           <div className="flex justify-between p-3">
             <Eye />
             <p>{mToKm(data?.currentWeather?.visibility)}Km</p>
           </div>
         </div>
         <div className=" p-3 m-2 bg-zinc-900 rounded-xl justify-self-center w-full">
-          <p className="opacity-25 text-sm">Feels Like</p>
+          <p className="opacity-25 text-sm p-1">Feels Like</p>
           <div className="flex justify-between p-3">
             <Thermometer />
             <p className="text-xl">
