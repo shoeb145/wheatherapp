@@ -13,16 +13,16 @@ import {
 function SideNav({ location, data }) {
   console.log(getCurrentDate());
   return (
-    <div className="  hide-scrollbar bg-zinc-900 md:h-[calc(100vh-105px)] md:overflow-y-scroll lg:h-[calc(100vh-80px)] overflow-y-scroll  p-4 md:p-2">
+    <div className="  hide-scrollbar bg-zinc-900 md:h-[calc(100vh-108px)] md:overflow-y-scroll lg:h-[calc(100vh-108px)] overflow-y-scroll  p-4 md:p-2">
       <div className="bg-zinc-800   rounded-xl justify-self-center w-full    p-4">
         <p className="text-sm/10">Now</p>
         <div className="grid grid-cols-2 place-content-center">
-          <p className="text-5xl self-center">
+          <p className="text-5xl lg:text-6xl self-center">
             {roundOff(data?.currentWeather?.main?.temp)}&deg;
-            <sup className="text-xl">C</sup>
+            <sup className="text-xl lg:text-2xl ">C</sup>
           </p>
           <img
-            className=" size-20 "
+            className=" size-20  lg:size-25"
             src={
               iconType[
                 data ? data?.currentWeather?.weather[0]?.icon : "no image"
@@ -58,11 +58,16 @@ function SideNav({ location, data }) {
               return (
                 <div className="grid grid-cols-3 " key={id}>
                   {" "}
-                  <img
-                    className=" size-20 md:size-16"
-                    src={iconType[cast ? cast.weather[0]?.icon : "no image"]}
-                    alt=""
-                  />
+                  <div className="flex">
+                    <img
+                      className=" size-20 lg:size-20 md:size-16"
+                      src={iconType[cast ? cast.weather[0]?.icon : "no image"]}
+                      alt=""
+                    />
+                    <p className="self-center lg:text-lg">
+                      {roundOff(cast.main?.temp)}&deg;
+                    </p>
+                  </div>
                   <div className="opacity-25 place-items-center self-center">
                     {" "}
                     <p className="text-base md:text-sm">

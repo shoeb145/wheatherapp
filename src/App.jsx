@@ -92,7 +92,7 @@ function App() {
   console.log(data.pollution);
 
   return (
-    <div className="bg-zinc-900 pt-6 px-6">
+    <div className="bg-zinc-900 md:pt-6 md:px-6">
       <Header
         change={handleCity}
         handleClick={handlClick}
@@ -100,7 +100,7 @@ function App() {
         coordinate={coordinate}
         className="font-roboto "
       />
-      <div className="md:grid md:grid-cols-3 ">
+      <div className="md:grid md:grid-cols-3  lg:grid-cols-4 lg:gap-6">
         {" "}
         <SideNav className="font-roboto " location={location} data={data} />
         <Main data={data} />

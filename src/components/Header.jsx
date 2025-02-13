@@ -3,6 +3,7 @@ import { Search, Umbrella, ArrowLeft } from "lucide-react";
 import { Locate } from "lucide-react";
 
 function Header({ change, location, handleClick, coordinate }) {
+  const [actClick, setActClick] = useState(false);
   const [searchvalue, setSearchValue] = useState("");
   const [showMyModel, setShowMyModel] = useState(false);
 
@@ -23,6 +24,7 @@ function Header({ change, location, handleClick, coordinate }) {
   function handlechange(e) {
     let value = e.target.value;
     change(value);
+    setActClick(false);
 
     setSearchValue(value);
   }
@@ -102,13 +104,16 @@ function Header({ change, location, handleClick, coordinate }) {
             onChange={handlechange}
           />
         </div>
-        <div className={{actClick ? {md:bg-fuchsia-200}: {bg-zinc-800 }}
-          className="flex items-center rounded-full md:h-10 w-9 h-9 px-2 md:w-44 md:cursor-pointer
-          place-content-center py-2 bg-zinc-800 active:bg-violet-700 focus:bg-violet-700"
+        <div
+          className={`${
+            actClick ? "bg-fuchsia-300 text-zinc-800" : "bg-zinc-800 "
+          } flex items-center rounded-full md:h-10 w-9 h-9 px-2 md:w-44 md:cursor-pointer
+          place-content-center py-2 `}
           onClick={() => {
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords;
+                setActClick(true);
                 location({ latitude, longitude });
               });
             }
