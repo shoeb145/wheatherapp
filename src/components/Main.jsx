@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./footer";
+import Footer from "./Footer";
 import { roundOff } from "../utils";
 import { aqiText, msToTime, mToKm } from "../utils";
 import {
