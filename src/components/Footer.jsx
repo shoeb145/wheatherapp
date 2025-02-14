@@ -31,11 +31,6 @@ function Footer({ data }) {
       </div>
 
       <div className="flex  overflow-x-auto scroll-smooth hide-scrollbar  ">
-        {/* <div className="flex flex-col rounded-2xl m-2 min-w-20  min-h-28 bg-zinc-800  justify-center items-center">
-          <p>3pm</p>
-          <MousePointer2 className="rotate-30 text-amber-200 fill-amber-200 " />
-          <p>0km/h</p>
-        </div> */}
         {data.forecast &&
           data.forecast.list
             .filter((_, index) => {

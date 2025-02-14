@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import SideNav from "./components/SideNav";
 import Main from "./components/Main";
 import { useState, useEffect } from "react";
-import Footer from "./components/footer";
 
 function App() {
   const [data, setData] = useState({
@@ -44,7 +43,6 @@ function App() {
         let res = await fetch(url);
         let cord = await res.json();
         setCoordinate(cord);
-        console.log(coordinate);
       } catch (err) {
         console.log(err);
       }
