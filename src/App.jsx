@@ -87,7 +87,6 @@ function App() {
     }
     fetchData();
   }, [location]);
-  console.log(data.pollution);
 
   return (
     <div className="bg-zinc-900 md:pt-6 md:px-6">
