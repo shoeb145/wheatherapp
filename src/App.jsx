@@ -100,7 +100,7 @@ function App() {
         coordinate={coordinate}
         className="font-roboto "
       />
-      <div className="md:grid md:grid-cols-3  lg:grid-cols-4 lg:gap-6">
+      <div className="md:grid md:grid-cols-3  lg:grid-cols-4">
         {" "}
         <SideNav className="font-roboto " location={location} data={data} />
         <Main data={data} />

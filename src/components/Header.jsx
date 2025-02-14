@@ -4,6 +4,8 @@ import { Locate } from "lucide-react";
 
 function Header({ change, location, handleClick, coordinate }) {
   const [actClick, setActClick] = useState(false);
+  const [style, setStyle] = useState(false);
+  const [hideSearchopt, sethideSearchopt] = useState(true);
   const [searchvalue, setSearchValue] = useState("");
   const [showMyModel, setShowMyModel] = useState(false);
 
@@ -25,6 +27,11 @@ function Header({ change, location, handleClick, coordinate }) {
     let value = e.target.value;
     change(value);
     setActClick(false);
+    setStyle(true);
+    sethideSearchopt(true);
+    if (value == "") {
+      setStyle(false);
+    }
 
     setSearchValue(value);
   }
@@ -37,9 +44,19 @@ function Header({ change, location, handleClick, coordinate }) {
     location({ latitude: coordinate[key].lat, longitude: coordinate[key].lon });
     setShowMyModel(!showMyModel);
   }
+  function getDataLg(key) {
+    if (key === "") {
+      return;
+    }
+    // setSelectitem({coordinate[key].lon);
+    sethideSearchopt(false);
+    setStyle(false);
+    setSearchValue("");
+    location({ latitude: coordinate[key].lat, longitude: coordinate[key].lon });
+  }
 
   return (
-    <div className="flex  items-center justify-between pt-4 px-7 pb-3  bg-zinc-900 sticky top-0 z-40 h-20 ">
+    <div className="flex  items-center justify-between lg:justify-items-stretch pt-4 px-7 pb-3  bg-zinc-900 sticky top-0 z-40 h-20 ">
       {showMyModel && (
         <div className="fixed inset-0 h-screen bg-black bg-opacity-30 backdrop-blur-sm  ">
           <div className="flex  items-center  pt-4 px-3 pb-3   ">
@@ -72,7 +89,9 @@ function Header({ change, location, handleClick, coordinate }) {
                 return (
                   <div
                     key={id}
-                    className="flex  justify-between cursor-pointer py-0.5"
+                    className={`${
+                      hideSearchopt ? "flex" : "hidden"
+                    }  justify-between cursor-pointer py-0.5`}
                     onClick={() => {
                       getData(id);
                     }}
@@ -85,25 +104,68 @@ function Header({ change, location, handleClick, coordinate }) {
         </div>
       )}
       <div className="flex items-center">
-        <Umbrella className="fill-amber-300 size-9 pr-1" />
+        <Umbrella className=" fill-amber-300 size-9 pr-1" />
         <span>Weatherain</span>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4  lg:contents">
         <div
-          className="flex items-center place-content-center  rounded-full md:h-10 w-9 md:w-10 h-9 px-2 py-2 bg-zinc-800 "
+          className="flex items-center place-content-center lg:hidden  rounded-full md:h-10 w-9 md:w-10 h-9 px-2 py-2 bg-zinc-800 lg:w-105 "
           onClick={() => {
             handlClick();
           }}
         >
           <Search className="place-content-center size-4 md:size-5 flex " />
           <input
-            className=" w-80 h-10 outline-none px-2 border-none text-sm  hidden"
+            className=" w-80 h-10 outline-none px-2 border-none text-sm  hidden lg:block "
             type="text"
             placeholder="Search city..."
             value={searchvalue}
             onChange={handlechange}
           />
         </div>
+        <div className="">
+          <div
+            className={`${
+              style ? "rounded-t-xl" : "rounded-full"
+            }  items-center place-content-center hidden lg:flex   md:h-10 w-9 md:w-10 h-9 px-2 py-2 bg-zinc-800 lg:w-105 `}
+          >
+            <Search className="place-content-center size-4 md:size-5 flex " />
+            <input
+              className=" w-80 h-10 outline-none px-2 border-none text-sm  hidden lg:block "
+              type="text"
+              placeholder="Search city..."
+              value={searchvalue}
+              onChange={handlechange}
+              onKeyUp={(e) => {
+                if (e.key == "Enter") {
+                }
+              }}
+            />
+          </div>
+          <div className="px-4 w-105 bg-zinc-800 absolute">
+            {coordinate &&
+              searchvalue &&
+              coordinate.map((co, id) => {
+                return (
+                  <>
+                    <div
+                      key={id}
+                      className={`${
+                        hideSearchopt ? "flex" : "hidden"
+                      }  justify-between cursor-pointer py-0.5`}
+                      onClick={() => {
+                        getDataLg(id);
+                      }}
+                    >
+                      <hr />
+                      <p>{co.name} </p> <p> {co.country}</p>
+                    </div>
+                  </>
+                );
+              })}
+          </div>
+        </div>
+
         <div
           className={`${
             actClick ? "bg-fuchsia-300 text-zinc-800" : "bg-zinc-800 "

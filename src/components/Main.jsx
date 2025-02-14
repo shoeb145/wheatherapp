@@ -14,7 +14,7 @@ import {
 
 function Main({ data }) {
   return (
-    <div className=" hide-scrollbar font-roboto lg:h-[calc(100vh-108px)] md:h-[calc(100vh-108px)] lg:overflow-y-scroll md:overflow-y-scroll  lg:col-span-3 md:hide-scrollbar  lg:hide-scrollbar bg-zinc-900 md:col-span-2 col-span-3 justify-self-center  w-full md:p-2  p-4">
+    <div className=" hide-scrollbar font-roboto lg:h-[calc(100vh-108px)] md:h-[calc(100vh-108px)] lg:overflow-y-scroll md:overflow-y-scroll  lg:col-span-2 md:hide-scrollbar  lg:hide-scrollbar bg-zinc-900 md:col-span-2 lg:col-span-3 justify-self-center  w-full md:p-2  p-4">
       <div className="bg-zinc-800 rounded-xl justify-self-center w-full p-4">
         Todays Highlights
         <div className="lg:flex">
@@ -28,27 +28,27 @@ function Main({ data }) {
                 {aqiText[data?.pollution?.list[0]?.main?.aqi]?.level}
               </p>
             </div>
-            <div className="grid grid-cols-3 p-1 ">
-              <Wind className="self-center" />
+            <div className="grid grid-cols-3 p-1 lg:h-40 ">
+              <Wind className="self-center lg:size-18" />
 
               <div className="grid-rows-2 place-items-center">
-                <p className="text-gray-300">
+                <p className="text-gray-300 lg:text-4xl flex flex-col">
                   {roundOff(data?.pollution?.list[0]?.components?.pm2_5)}
-                  <span className="text-gray-500 text-sm">PM25</span>
+                  <span className="text-gray-500 text-sm lg:text-xl">PM25</span>
                 </p>{" "}
-                <p className="text-gray-300">
+                <p className="text-gray-300 lg:text-2xl flex flex-col">
                   {data?.pollution?.list[0]?.components?.no2}
-                  <span className="text-gray-500 text-sm">N02</span>
+                  <span className="text-gray-500 text-sm lg:text-lg">N02</span>
                 </p>
               </div>
               <div className="grid-rows-2 place-items-end">
-                <p className="text-gray-300">
+                <p className="text-gray-300 lg:text-4xl">
                   {data?.pollution?.list[0]?.components?.so2}
-                  <span className="text-gray-500 text-sm">S02</span>
+                  <span className="text-gray-500 text-sm lg:text-xl">S02</span>
                 </p>
-                <p className="text-gray-300">
+                <p className="text-gray-300 lg:text-4xl">
                   {data?.pollution?.list[0]?.components?.o3}
-                  <span className="text-gray-500 text-sm">O3</span>
+                  <span className="text-gray-500 text-sm lg:text-xl">O3</span>
                 </p>
               </div>
             </div>

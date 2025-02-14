@@ -14,23 +14,24 @@ function SideNav({ location, data }) {
   console.log(getCurrentDate());
   return (
     <div className="  hide-scrollbar bg-zinc-900 md:h-[calc(100vh-108px)] md:overflow-y-scroll lg:h-[calc(100vh-108px)] overflow-y-scroll  p-4 md:p-2">
-      <div className="bg-zinc-800   rounded-xl justify-self-center w-full    p-4">
+      <div className="bg-zinc-800  rounded-xl justify-self-center w-full    p-4">
         <p className="text-sm/10">Now</p>
         <div className="grid grid-cols-2 place-content-center">
           <p className="text-5xl lg:text-6xl self-center">
             {roundOff(data?.currentWeather?.main?.temp)}&deg;
             <sup className="text-xl lg:text-2xl ">C</sup>
           </p>
-          <img
-            className=" size-20  lg:size-25"
-            src={
-              iconType[
-                data ? data?.currentWeather?.weather[0]?.icon : "no image"
-              ]
-            }
-            alt=""
-          />
-          {/* <Moon className="fill-white size-14 pl-3" /> */}
+          <div className="w-30 h-30 overflow-hidden">
+            <img
+              className="w-full h-full object-cover"
+              src={
+                iconType[
+                  data ? data?.currentWeather?.weather[0]?.icon : "no image"
+                ]
+              }
+              alt="Weather Icon"
+            />
+          </div>
         </div>
         <p className="text-xs py-3 text-white-400">
           {data ? data?.currentWeather?.weather[0]?.description : ""}
@@ -59,11 +60,14 @@ function SideNav({ location, data }) {
                 <div className="grid grid-cols-3 " key={id}>
                   {" "}
                   <div className="flex">
-                    <img
-                      className=" size-20 lg:size-20 md:size-16"
-                      src={iconType[cast ? cast.weather[0]?.icon : "no image"]}
-                      alt=""
-                    />
+                    <div className="w-20 h-20 overflow-hidden">
+                      <img
+                        className="w-full h-full object-cover"
+                        src="http://openweathermap.org/img/wn/04n@2x.png"
+                        alt="Weather Icon"
+                      />
+                    </div>
+
                     <p className="self-center lg:text-lg">
                       {roundOff(cast.main?.temp)}&deg;
                     </p>
