@@ -61,11 +61,14 @@ function Header({ change, location, handleClick, coordinate }) {
         <div className="fixed inset-0 h-screen bg-black bg-opacity-30 backdrop-blur-sm  ">
           <div className="flex  items-center  pt-4 px-3 pb-3   ">
             {" "}
-            <ArrowLeft
-              onClick={() => {
-                handlClick();
-              }}
-            />
+            <div className="w-8">
+              <ArrowLeft
+                className="size-8"
+                onClick={() => {
+                  handlClick();
+                }}
+              />
+            </div>
             <div className="flex justify-center ">
               <input
                 className=" w-80 h-10  px-3  text-sm outline-hidden border-hidden"
@@ -131,7 +134,7 @@ function Header({ change, location, handleClick, coordinate }) {
           >
             <Search className="place-content-center size-4 md:size-5 flex " />
             <input
-              className=" w-80 h-10 outline-none px-2 border-none text-sm  hidden lg:block "
+              className=" w-93 h-10 outline-none px-2 border-none text-sm  hidden lg:block "
               type="text"
               placeholder="Search city..."
               value={searchvalue}
@@ -142,12 +145,13 @@ function Header({ change, location, handleClick, coordinate }) {
               }}
             />
           </div>
-          <div className="px-4 w-105 bg-zinc-800 absolute">
+          <div className="px-4 w-105 bg-zinc-800 hidden lg:block absolute">
             {coordinate &&
               searchvalue &&
               coordinate.map((co, id) => {
                 return (
                   <>
+                    <hr />
                     <div
                       key={id}
                       className={`${
@@ -157,7 +161,6 @@ function Header({ change, location, handleClick, coordinate }) {
                         getDataLg(id);
                       }}
                     >
-                      <hr />
                       <p>{co.name} </p> <p> {co.country}</p>
                     </div>
                   </>

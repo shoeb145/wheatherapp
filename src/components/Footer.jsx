@@ -15,7 +15,7 @@ function Footer({ data }) {
               return (
                 <div
                   key={id}
-                  className="flex flex-col rounded-2xl m-2 min-w-25 min-h-40 bg-zinc-800  justify-center items-center"
+                  className="flex flex-col rounded-2xl m-2 min-w-25 lg:min-w-30 min-h-40 bg-zinc-800  justify-center items-center"
                 >
                   <p>{dt_TextToTime(cast?.dt_txt)}</p>
                   <img
@@ -45,7 +45,7 @@ function Footer({ data }) {
               return (
                 <div
                   key={id}
-                  className="flex flex-col rounded-2xl m-2 min-w-25 min-h-40 bg-zinc-800  justify-center items-center"
+                  className="flex flex-col rounded-2xl m-2 min-w-25 lg:min-w-30 min-h-40 bg-zinc-800  justify-center items-center"
                 >
                   <p className="p-2">{dt_TextToTime(cast?.dt_txt)}</p>
                   <MousePointer2
