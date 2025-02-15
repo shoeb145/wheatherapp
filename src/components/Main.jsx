@@ -18,7 +18,7 @@ function Main({ data }) {
       <div className="dark:bg-zinc-800 rounded-xl justify-self-center w-full p-4">
         Todays Highlights
         <div className="lg:flex">
-          <div className=" p-3 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-52 lg:m-2 lg:ml-0">
+          <div className=" p-3 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-52 lg:m-2 mt-2 lg:ml-0">
             <div className="flex justify-between p-1 ">
               <p className="opacity-80    dark:opacity-25 text-sm lg:text-lg">
                 Air Quality Index
@@ -63,7 +63,7 @@ function Main({ data }) {
               </div>
             </div>
           </div>
-          <div className=" p-3 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:m-2 lg:h-52 lg:mr-0">
+          <div className=" p-3 mt-2 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:m-2 lg:h-52 lg:mr-0">
             <div className="">
               <p className="opacity-80    dark:opacity-25 text-sm p-1 lg:text-lg">
                 Sunrise & Sunset
@@ -103,7 +103,7 @@ function Main({ data }) {
           </div>
         </div>
         <div className="lg:flex">
-          <div className=" p-3 lg:ml-0 lg:m-2 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
+          <div className="mt-2 p-3 lg:ml-0 lg:m-2 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
             <p className="opacity-80    dark:opacity-25 text-sm p-1 lg:text-lg ">
               Humidity
             </p>
@@ -114,7 +114,7 @@ function Main({ data }) {
               </p>
             </div>
           </div>
-          <div className="lg:m-2 p-3 bg-gray-300  dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
+          <div className="mt-2 lg:m-2 p-3 bg-gray-300  dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
             <p className="opacity-80    dark:opacity-25 text-sm p-1 lg:text-lg ">
               Pressure
             </p>
@@ -125,7 +125,7 @@ function Main({ data }) {
               </p>
             </div>
           </div>
-          <div className=" p-3 lg:m-2 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
+          <div className="mt-2 p-3 lg:m-2 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
             <p className="opacity-80    dark:opacity-25 text-sm p-1 lg:text-lg ">
               Visibility
             </p>
@@ -136,7 +136,7 @@ function Main({ data }) {
               </p>
             </div>
           </div>
-          <div className=" p-3 lg:m-2 lg:mr-0 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
+          <div className="mt-2 p-3 lg:m-2 lg:mr-0 bg-gray-300 dark:bg-zinc-900 rounded-xl justify-self-center w-full lg:h-40">
             <p className="opacity-80    dark:opacity-25 text-sm lg:text-lg p-1">
               Feels Like
             </p>
