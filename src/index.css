@@ -10,7 +10,6 @@
 /* Optional custom classes */
 .font-roboto {
   font-family: var(--font-roboto) !important;
-  
 }
 /* Hide scrollbar but allow scrolling */
 .hide-scrollbar {

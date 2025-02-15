@@ -11,7 +11,6 @@ import {
 } from "../utils";
 
 function SideNav({ location, data }) {
-  console.log(getCurrentDate());
   return (
     <div className="  hide-scrollbar bg-zinc-900 md:h-[calc(100vh-108px)] md:overflow-y-scroll lg:h-[calc(100vh-108px)] overflow-y-scroll  p-4 md:p-2">
       <div className="bg-zinc-800  rounded-xl justify-self-center w-full    p-4">
