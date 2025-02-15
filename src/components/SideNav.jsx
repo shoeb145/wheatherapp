@@ -62,7 +62,7 @@ function SideNav({ location, data }) {
                     <div className="w-20 h-20 overflow-hidden">
                       <img
                         className="w-full h-full object-cover"
-                        src="http://openweathermap.org/img/wn/04n@2x.png"
+                        src="https://openweathermap.org/img/wn/04n@2x.png"
                         alt="Weather Icon"
                       />
                     </div>

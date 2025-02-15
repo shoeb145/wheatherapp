@@ -1,5 +1,6 @@
 import "./App.css";
-const apiKey = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY || process.env.VITE_API_KEY;
+
 import Header from "./components/Header";
 import SideNav from "./components/SideNav";
 import Main from "./components/Main";
@@ -37,7 +38,7 @@ function App() {
     }
     async function fetchCord() {
       try {
-        const baseUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=`;
+        const baseUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=`;
         const suffix = apiKey;
         let url = baseUrl + suffix;
         let res = await fetch(url);
@@ -60,7 +61,7 @@ function App() {
     }
     const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${apiKey}`;
     const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${apiKey}`;
-    const pollutionURL = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`;
+    const pollutionURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`;
 
     async function fetchData() {
       setLoading(true);
