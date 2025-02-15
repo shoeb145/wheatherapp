@@ -12,8 +12,8 @@ import {
 
 function SideNav({ location, data }) {
   return (
-    <div className="  hide-scrollbar bg-zinc-900 md:h-[calc(100vh-108px)] md:overflow-y-scroll lg:h-[calc(100vh-108px)] overflow-y-scroll  p-4 md:p-2">
-      <div className="bg-zinc-800  rounded-xl justify-self-center w-full    p-4">
+    <div className="  hide-scrollbar dark:bg-zinc-900 md:h-[calc(100vh-108px)] md:overflow-y-scroll lg:h-[calc(100vh-108px)] overflow-y-scroll  p-4 md:p-2">
+      <div className="bg-gray-300 dark:bg-zinc-800  rounded-xl justify-self-center w-full    p-4">
         <p className="text-sm/10">Now</p>
         <div className="grid grid-cols-2 place-content-center">
           <p className="text-5xl lg:text-6xl self-center">
@@ -38,11 +38,13 @@ function SideNav({ location, data }) {
         <hr />
         <div className=" flex text-xs py-2">
           <Calendar className="size-4 " />
-          <p className="pl-1 opacity-25 ">{getCurrentDate()}</p>
+          <p className="pl-1 opacity-80  dark:opacity-25 ">
+            {getCurrentDate()}
+          </p>
         </div>
         <div className="flex text-xs">
           <MapPin className="size-4" />
-          <p className="pl-1 opacity-25 ">
+          <p className="pl-1 opacity-80    dark:opacity-25 ">
             {" "}
             {data ? data?.currentWeather?.name : ""},{" "}
             {data ? data?.currentWeather?.sys?.country : ""}
@@ -50,7 +52,7 @@ function SideNav({ location, data }) {
         </div>
       </div>
       <p className="p-2 pl-0">5 Days Forecast</p>
-      <div className="bg-zinc-800  rounded-xl justify-self-center w-full  flex flex-col p-4 md:p-2 md:pr-3">
+      <div className="bg-gray-300 dark:bg-zinc-800  rounded-xl justify-self-center w-full  flex flex-col p-4 md:p-2 md:pr-3">
         {data.forecast &&
           data.forecast.list
             .filter((_, index) => index % 8 == 0)
@@ -71,13 +73,13 @@ function SideNav({ location, data }) {
                       {roundOff(cast.main?.temp)}&deg;
                     </p>
                   </div>
-                  <div className="opacity-25 place-items-center self-center">
+                  <div className="opacity-80 dark:opacity-25 place-items-center self-center">
                     {" "}
                     <p className="text-base md:text-sm">
                       {getCurrentForecastDate(cast.dt_txt)}
                     </p>
                   </div>
-                  <div className="  opacity-25 place-items-end self-center">
+                  <div className=" opacity-80  dark:opacity-25 place-items-end self-center">
                     <p className="md:text-sm">
                       {getCurrentForecastWeekday(cast.dt_txt)}
                     </p>

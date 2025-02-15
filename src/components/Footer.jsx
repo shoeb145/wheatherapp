@@ -3,7 +3,7 @@ import { dt_TextToTime, iconType, roundOff, msToKmh } from "../utils";
 
 function Footer({ data }) {
   return (
-    <div className="bg-zinc-900     p-2">
+    <div className="dark:bg-zinc-900     p-2">
       <p className="p-1">Today at</p>
       <div className="flex  overflow-x-auto scroll-smooth hide-scrollbar ">
         {data.forecast &&
@@ -15,7 +15,7 @@ function Footer({ data }) {
               return (
                 <div
                   key={id}
-                  className="flex flex-col rounded-2xl m-2 min-w-25 lg:min-w-30 min-h-40 bg-zinc-800  justify-center items-center"
+                  className="flex flex-col rounded-2xl m-2 bg-gray-300 min-w-25 lg:min-w-30 min-h-40 dark:bg-zinc-800  justify-center items-center"
                 >
                   <p>{dt_TextToTime(cast?.dt_txt)}</p>
                   <img
@@ -40,12 +40,12 @@ function Footer({ data }) {
               return (
                 <div
                   key={id}
-                  className="flex flex-col rounded-2xl m-2 min-w-25 lg:min-w-30 min-h-40 bg-zinc-800  justify-center items-center"
+                  className="flex flex-col rounded-2xl m-2 min-w-25 lg:min-w-30 min-h-40 bg-gray-300 dark:bg-zinc-800  justify-center items-center"
                 >
                   <p className="p-2">{dt_TextToTime(cast?.dt_txt)}</p>
                   <MousePointer2
                     style={{ transform: `rotate(${cast?.wind?.deg}deg)` }}
-                    className={`rotate-${cast?.wind?.deg} text-amber-200 fill-amber-200 m-4 `}
+                    className={`rotate-${cast?.wind?.deg} dark:text-amber-200 dark:fill-amber-200 m-4 `}
                   />
 
                   <p className="p-2">

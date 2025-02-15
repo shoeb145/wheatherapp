@@ -90,7 +90,7 @@ function App() {
   }, [location]);
 
   return (
-    <div className="bg-zinc-900 md:pt-6 md:px-6">
+    <div className="dark:bg-zinc-900 md:pt-6 md:px-6">
       <Header
         change={handleCity}
         handleClick={handlClick}

@@ -5,8 +5,10 @@
 
 :root {
   --font-roboto: "Poppins", sans-serif;
+  --primary-color: oklch(100% 0 0);
 }
 
+/* Define the color */
 /* Optional custom classes */
 .font-roboto {
   font-family: var(--font-roboto) !important;
@@ -15,6 +17,9 @@
 .hide-scrollbar {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
+}
+.bg-1 {
+  background-color: oklch(100% 0 0);
 }
 
 .hide-scrollbar::-webkit-scrollbar {

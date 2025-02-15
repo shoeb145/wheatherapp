@@ -56,9 +56,9 @@ function Header({ change, location, handleClick, coordinate }) {
   }
 
   return (
-    <div className="flex  items-center justify-between lg:justify-items-stretch pt-4 px-7 pb-3  bg-zinc-900 sticky top-0 z-40 h-20 ">
+    <div className="flex  items-center justify-between lg:justify-items-stretch pt-4 px-7 pb-3   bg-1 dark:bg-zinc-900 sticky top-0 z-40 h-20 ">
       {showMyModel && (
-        <div className="fixed inset-0 h-screen bg-black bg-opacity-30 backdrop-blur-sm  ">
+        <div className="fixed inset-0 h-screen dark:bg-black bg-opacity-30 backdrop-blur-sm  ">
           <div className="flex  items-center  pt-4 px-3 pb-3   ">
             {" "}
             <div className="w-8">
@@ -112,7 +112,7 @@ function Header({ change, location, handleClick, coordinate }) {
       </div>
       <div className="flex gap-4  lg:contents">
         <div
-          className="flex items-center place-content-center lg:hidden  rounded-full md:h-10 w-9 md:w-10 h-9 px-2 py-2 bg-zinc-800 lg:w-105 "
+          className=" flex items-center place-content-center lg:hidden  rounded-full md:h-10 w-9 md:w-10 h-9 px-2 py-2 dark:bg-zinc-800 lg:w-105 "
           onClick={() => {
             handlClick();
           }}
@@ -130,7 +130,7 @@ function Header({ change, location, handleClick, coordinate }) {
           <div
             className={`${
               style ? "rounded-t-xl" : "rounded-full"
-            }  items-center place-content-center hidden lg:flex   md:h-10 w-9 md:w-10 h-9 px-2 py-2 bg-zinc-800 lg:w-105 `}
+            }  items-center place-content-center hidden lg:flex   md:h-10 w-9 md:w-10 h-9 px-2 py-2 dark:bg-zinc-800 lg:w-105 `}
           >
             <Search className="place-content-center size-4 md:size-5 flex " />
             <input
@@ -145,7 +145,7 @@ function Header({ change, location, handleClick, coordinate }) {
               }}
             />
           </div>
-          <div className="px-4 w-105 bg-zinc-800 hidden lg:block absolute">
+          <div className="px-4 w-105 bg-gray-300  dark:bg-zinc-800 hidden lg:block absolute">
             {coordinate &&
               searchvalue &&
               coordinate.map((co, id) => {
@@ -171,7 +171,7 @@ function Header({ change, location, handleClick, coordinate }) {
 
         <div
           className={`${
-            actClick ? "bg-fuchsia-300 text-zinc-800" : "bg-zinc-800 "
+            actClick ? "bg-fuchsia-300 dark:text-zinc-800" : "dark:bg-zinc-800 "
           } flex items-center rounded-full md:h-10 w-9 h-9 px-2 md:w-44 md:cursor-pointer
           place-content-center py-2 `}
           onClick={() => {
