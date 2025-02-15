@@ -56,11 +56,10 @@ function Header({ change, location, handleClick, coordinate }) {
   }
 
   return (
-    <div className="flex  items-center justify-between lg:justify-items-stretch pt-4 px-7 pb-3   bg-1 dark:bg-zinc-900 sticky top-0 z-40 h-20 ">
+    <div className="flex  items-center justify-between lg:justify-items-stretch pt-4 px-7 pb-3 dark:bg-zinc-900 bg-white sticky top-0 z-40 h-20 ">
       {showMyModel && (
         <div className="fixed inset-0 h-screen dark:bg-black bg-opacity-30 backdrop-blur-sm  ">
           <div className="flex  items-center  pt-4 px-3 pb-3   ">
-            {" "}
             <div className="w-8">
               <ArrowLeft
                 className="size-8"

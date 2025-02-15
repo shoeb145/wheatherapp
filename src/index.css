@@ -5,7 +5,7 @@
 
 :root {
   --font-roboto: "Poppins", sans-serif;
-  --primary-color: oklch(100% 0 0);
+  --light-bg: oklch(100% 0 0);
 }
 
 /* Define the color */
@@ -18,8 +18,8 @@
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
-.bg-1 {
-  background-color: oklch(100% 0 0);
+[data-theme="cupcake"] .bg-1 {
+  background-color: var(--light-bg);
 }
 
 .hide-scrollbar::-webkit-scrollbar {
